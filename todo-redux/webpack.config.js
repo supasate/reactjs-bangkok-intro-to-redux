@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: 'dist',
+    publicPath: './',
     filename: '[name].[chunkhash].js',
   },
   module: {
@@ -23,6 +23,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+    })
   ]
 }
