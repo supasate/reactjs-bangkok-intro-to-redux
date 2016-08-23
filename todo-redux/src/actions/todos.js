@@ -1,8 +1,9 @@
 import types from './types'
 
-const addTodo = (title) => ({
+const addTodo = (id, title) => ({
   type: types.ADD_TODO,
   payload: {
+    id,
     title,
   },
 })
