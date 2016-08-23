@@ -4,6 +4,7 @@
   "description": "A TodoMVC with Redux",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf dist",
     "start": "webpack-dev-server",
     "lint": "eslint .",
     "test": "mocha --compilers js:babel-register --require ./test/test-helper --recursive ",
