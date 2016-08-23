@@ -8,7 +8,8 @@
     "start": "webpack-dev-server",
     "lint": "eslint .",
     "test": "mocha --compilers js:babel-register --require ./test/test-helper --recursive ",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "build": "npm run test && webpack"
   },
   "author": "Supasate Choochaisri",
   "license": "MIT",
