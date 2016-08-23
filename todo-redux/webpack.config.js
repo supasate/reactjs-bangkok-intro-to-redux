@@ -6,7 +6,7 @@ module.exports = {
   entry: {
     entry: path.join(__dirname, 'src', 'index.js'),
     webpackdev: 'webpack-dev-server/client?http://localhost:8080',
-    vendor: ['react', 'react-dom']
+    vendor: ['react', 'react-dom'],
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -19,12 +19,12 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ['babel'],
-      }
-    ]
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-    })
-  ]
+    }),
+  ],
 }
