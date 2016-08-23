@@ -1,11 +1,13 @@
 {
   "name": "todo-redux",
   "version": "1.0.0",
-  "description": "",
+  "description": "A TodoMVC with Redux",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server",
     "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "posttest": "npm run lint"
   },
   "author": "Supasate Choochaisri",
   "license": "MIT",
