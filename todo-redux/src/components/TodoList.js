@@ -1,8 +1,14 @@
 import React from 'react'
 import TodoItem from './TodoItem'
 
-const TodoList = ({ todos }) => {
-  const todoList = todos.map((todo) => <TodoItem key={todo.id} todo={todo} />)
+const TodoList = ({ todos, onItemClick }) => {
+  const todoList = todos.map((todo) =>
+    <TodoItem
+      key={todo.id}
+      todo={todo}
+      onClick={() => onItemClick(todo.id)}
+    />
+  )
 
   return (
     <ul className="todo-list">
@@ -13,6 +19,7 @@ const TodoList = ({ todos }) => {
 
 TodoList.propTypes = {
   todos: React.PropTypes.array.isRequired,
+  onItemClick: React.PropTypes.func.isRequired,
 }
 
 export default TodoList
