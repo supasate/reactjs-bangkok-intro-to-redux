@@ -8,6 +8,14 @@ const addTodo = (id, title) => ({
   },
 })
 
+const toggleTodo = (id) => ({
+  type: types.TOGGLE_TODO,
+  payload: {
+    id,
+  },
+})
+
 export default {
   addTodo,
+  toggleTodo,
 }

@@ -14,4 +14,15 @@ describe('Todos Actions', () => {
     }
     expect(action).to.deep.equal(expectedAction)
   })
+
+  it('should create action with type TOGGLE_TODO', () => {
+    const action = actions.toggleTodo(1)
+    const expectedAction = {
+      type: types.TOGGLE_TODO,
+      payload: {
+        id: 1,
+      },
+    }
+    expect(action).to.deep.equal(expectedAction)
+  })
 })
