@@ -1,13 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
 
-const TodoItem = (props) => (
+const TodoItem = ({ todo }) => (
   <li
     className={classNames('todo-item', {
-      completed: props.todo.completed,
+      completed: todo.completed,
     })}
   >
-    {props.todo.title}
+    { todo.title }
   </li>
 )
 
