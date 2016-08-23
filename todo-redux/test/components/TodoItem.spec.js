@@ -9,6 +9,7 @@ describe('TodoItem', () => {
   beforeEach(() => {
     props = {
       todo: {
+        id: 1,
         title: 'Prepare a slide deck',
         completed: false,
       },
