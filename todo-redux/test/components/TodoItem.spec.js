@@ -1,5 +1,5 @@
 import React from 'react'
-import { expect, shallow } from '../test-helper'
+import { expect, shallow, sinon } from '../test-helper'
 import TodoItem from '../../src/components/TodoItem'
 
 describe('TodoItem', () => {
@@ -13,6 +13,7 @@ describe('TodoItem', () => {
         title: 'Prepare a slide deck',
         completed: false,
       },
+      onClick: sinon.spy(),
     }
     wrapper = shallow(<TodoItem {...props} />)
   })
@@ -29,5 +30,10 @@ describe('TodoItem', () => {
     props.todo.completed = true
     wrapper.setProps(props)
     expect(wrapper).to.have.className('completed')
+  })
+
+  it('should call onClick when clicking on a todo item', () => {
+    wrapper.simulate('click')
+    expect(props.onClick).to.have.been.called
   })
 })
