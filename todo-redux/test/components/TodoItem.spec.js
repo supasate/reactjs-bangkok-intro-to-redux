@@ -14,6 +14,7 @@ describe('TodoItem', () => {
         completed: false,
       },
       onClick: sinon.spy(),
+      onDestroy: sinon.spy(),
     }
     wrapper = shallow(<TodoItem {...props} />)
   })
@@ -26,8 +27,12 @@ describe('TodoItem', () => {
     expect(div).to.have.tagName('div')
     expect(div).to.have.className('view')
 
-    const label = div.children()
+    const label = div.childAt(0)
     expect(label).to.have.tagName('label')
+
+    const button = div.childAt(1)
+    expect(button).to.have.tagName('button')
+    expect(button).to.have.className('destroy')
   })
 
   it('should not have a completed class for incomplete item', () => {
@@ -43,5 +48,10 @@ describe('TodoItem', () => {
   it('should call onClick when clicking on a todo item', () => {
     wrapper.simulate('click')
     expect(props.onClick).to.have.been.called
+  })
+
+  it('should call onDestroy when clicking on a delete mark', () => {
+    wrapper.find('.destroy').simulate('click')
+    expect(props.onDestroy).to.have.been.calledWith(props.todo.id)
   })
 })
