@@ -11,6 +11,7 @@ describe('NewTodoInput', () => {
       text: '',
       placeholder: 'What needs to be done?',
       onChange: sinon.spy(),
+      onAddTodo: sinon.spy(),
     }
     wrapper = shallow(<NewTodoInput {...props} />)
   })
@@ -40,5 +41,13 @@ describe('NewTodoInput', () => {
     wrapper.simulate('change', { target: { value: 'My new task' } })
 
     expect(props.onChange).to.have.been.calledWith('My new task')
+  })
+
+  it('should call props.onAddTodo when hitting enter', () => {
+    const ENTER_KEY = 13
+
+    wrapper.simulate('keyDown', { which: ENTER_KEY, target: { value: 'My new task' } })
+
+    expect(props.onAddTodo).to.have.been.calledWith('My new task')
   })
 })
