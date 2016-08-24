@@ -13,6 +13,14 @@ const todosReducer = (state = initialState, action) => {
       }
       return [...state, newTodo]
     }
+    case types.TOGGLE_TODO: {
+      return state.map(todo => {
+        if (todo.id === action.payload.id) {
+          return { ...todo, completed: !todo.completed }
+        }
+        return todo
+      })
+    }
     default:
       return state
   }
