@@ -2,7 +2,7 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import todoActions from '../actions/todos'
-import TodoInput from '../components/TodoInput'
+import Header from '../components/Header'
 import TodoList from './TodoList'
 
 const TodoApp = (props) => {
@@ -16,10 +16,8 @@ const TodoApp = (props) => {
 
   return (
     <div>
-      <TodoInput
-        newTodo
-        placeholder="What needs to be done?"
-        text={props.newTodoText}
+      <Header
+        newTodoText={props.newTodoText}
         onChange={onNewTodoTextChange}
         onEnter={onAddTodo}
       />
