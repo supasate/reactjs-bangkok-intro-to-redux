@@ -9,7 +9,7 @@ const NewTodoInput = (props) => {
 
   const handleKeyDown = (event) => {
     if (event.which === ENTER_KEY) {
-      props.onAddTodo(event.target.value.trim())
+      props.onEnter(event.target.value.trim())
     }
   }
 
@@ -28,7 +28,7 @@ NewTodoInput.propTypes = {
   text: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   onChange: React.PropTypes.func.isRequired,
-  onAddTodo: React.PropTypes.func.isRequired,
+  onEnter: React.PropTypes.func.isRequired,
 }
 
 export default NewTodoInput
