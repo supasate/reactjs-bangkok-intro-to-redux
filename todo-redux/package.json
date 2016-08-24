@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist",
-    "start": "webpack-dashboard -- webpack-dev-server --config ./webpack.config.js",
+    "start": "webpack-dashboard -- webpack-dev-server --content-base dist --config ./webpack.config.js",
     "lint": "eslint .",
     "test": "mocha --compilers js:babel-register --require ./test/test-helper --recursive ",
     "posttest": "npm run lint",
