@@ -9,6 +9,7 @@ describe('TodoInput', () => {
   beforeEach(() => {
     props = {
       text: '',
+      newTodo: false,
       placeholder: 'What needs to be done?',
       onChange: sinon.spy(),
       onEnter: sinon.spy(),
@@ -21,7 +22,16 @@ describe('TodoInput', () => {
   })
 
   it('should have a correct class', () => {
-    expect(wrapper).to.have.className('new-todo-input')
+    expect(wrapper).to.have.className('todo-input')
+    expect(wrapper).to.not.have.className('new-todo')
+  })
+
+  it('should have new-todo class for newTodo input', () => {
+    props.newTodo = true
+    wrapper.setProps(props)
+
+    expect(wrapper).to.have.className('todo-input')
+    expect(wrapper).to.have.className('new-todo')
   })
 
   it('should have placeholder text', () => {

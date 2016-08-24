@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 
 const ENTER_KEY = 13
 
@@ -16,7 +17,9 @@ const TodoInput = (props) => {
 
   return (
     <input
-      className="new-todo-input"
+      className={classNames('todo-input', {
+        'new-todo': props.newTodo,
+      })}
       value={props.text}
       placeholder={props.placeholder}
       onChange={handleChange}
@@ -27,6 +30,7 @@ const TodoInput = (props) => {
 
 TodoInput.propTypes = {
   text: React.PropTypes.string,
+  newTodo: React.PropTypes.bool,
   placeholder: React.PropTypes.string,
   onChange: React.PropTypes.func.isRequired,
   onEnter: React.PropTypes.func.isRequired,
