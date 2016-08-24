@@ -17,6 +17,7 @@ const TodoApp = (props) => {
   return (
     <div>
       <TodoInput
+        newTodo
         placeholder="What needs to be done?"
         text={props.newTodoText}
         onChange={onNewTodoTextChange}
