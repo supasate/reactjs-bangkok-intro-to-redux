@@ -21,19 +21,29 @@ describe('Todos Reducer', () => {
 
   describe('add', () => {
     it('should add new todo when receiving addTodo action', () => {
-      const action = {
-        type: types.ADD_TODO,
-        payload: {
-          id: 4,
-          title: 'Catch a pokemon',
+      const actions = [
+        {
+          type: types.ADD_TODO,
+          payload: {
+            title: 'Catch a pokemon',
+          },
         },
-      }
-      const nextState = reducer(curState, action)
+        {
+          type: types.ADD_TODO,
+          payload: {
+            title: 'Evolve a pokemon',
+          },
+        },
+      ]
+      const nextState = actions.reduce((state, nextAction) => reducer(state, nextAction), curState)
+
+      reducer(curState, actions)
       const expectedState = [
         { id: 1, title: 'Prepare a slide deck', completed: false },
         { id: 2, title: 'Speak at ReactJS Conference', completed: false },
         { id: 3, title: 'Sleep', completed: true },
         { id: 4, title: 'Catch a pokemon', completed: false },
+        { id: 5, title: 'Evolve a pokemon', completed: false },
       ]
 
       expect(nextState).to.deep.equal(expectedState)
@@ -43,7 +53,6 @@ describe('Todos Reducer', () => {
       const action = {
         type: types.ADD_TODO,
         payload: {
-          id: 4,
           title: 'Catch a pokemon',
         },
       }

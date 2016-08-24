@@ -7,10 +7,9 @@ const changeNewTodoText = (text) => ({
   },
 })
 
-const addTodo = (id, title) => ({
+const addTodo = (title) => ({
   type: types.ADD_TODO,
   payload: {
-    id,
     title,
   },
 })
