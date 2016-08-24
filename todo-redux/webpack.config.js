@@ -1,4 +1,5 @@
 const path = require('path')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -23,6 +24,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new DashboardPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),
