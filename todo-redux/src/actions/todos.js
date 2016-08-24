@@ -21,8 +21,16 @@ const toggleTodo = (id) => ({
   },
 })
 
+const destroyTodo = (id) => ({
+  type: types.DESTROY_TODO,
+  payload: {
+    id,
+  },
+})
+
 export default {
   changeNewTodoText,
   addTodo,
   toggleTodo,
+  destroyTodo,
 }
