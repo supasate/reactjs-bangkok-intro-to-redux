@@ -1,5 +1,5 @@
 import React from 'react'
-import { expect, shallow, sinon } from '../test-helper'
+import { expect, mount, shallow, sinon } from '../test-helper'
 import TodoList from '../../src/components/TodoList'
 import TodoItem from '../../src/components/TodoItem'
 
@@ -15,6 +15,7 @@ describe('TodoList', () => {
         { id: 3, title: 'Sleep', completed: true },
       ],
       onItemClick: sinon.spy(),
+      onDestroy: sinon.spy(),
     }
     wrapper = shallow(<TodoList {...props} />)
   })
@@ -40,5 +41,18 @@ describe('TodoList', () => {
 
     wrapper.find(TodoItem).at(2).simulate('click')
     expect(props.onItemClick).have.been.calledWith(3)
+  })
+
+  it('should call onDestroy with clicked item id', () => {
+    wrapper = mount(<TodoList {...props} />)
+
+    wrapper.find(TodoItem).at(0).find('.destroy').simulate('click')
+    expect(props.onDestroy).to.have.been.calledWith(1)
+
+    wrapper.find(TodoItem).at(1).find('.destroy').simulate('click')
+    expect(props.onDestroy).to.have.been.calledWith(2)
+
+    wrapper.find(TodoItem).at(2).find('.destroy').simulate('click')
+    expect(props.onDestroy).to.have.been.calledWith(3)
   })
 })
