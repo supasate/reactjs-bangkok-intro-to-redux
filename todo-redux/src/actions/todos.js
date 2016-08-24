@@ -1,5 +1,12 @@
 import types from './types'
 
+const changeNewTodoText = (text) => ({
+  type: types.CHANGE_NEW_TODO_TEXT,
+  payload: {
+    text,
+  },
+})
+
 const addTodo = (id, title) => ({
   type: types.ADD_TODO,
   payload: {
@@ -16,6 +23,7 @@ const toggleTodo = (id) => ({
 })
 
 export default {
+  changeNewTodoText,
   addTodo,
   toggleTodo,
 }

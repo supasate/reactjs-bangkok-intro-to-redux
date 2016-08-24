@@ -3,6 +3,17 @@ import actions from '../../src/actions/todos'
 import types from '../../src/actions/types'
 
 describe('Todos Actions', () => {
+  it('should create action with type CHANGE_NEW_TODO_TEXT', () => {
+    const action = actions.changeNewTodoText('Feed my cat')
+    const expectedAction = {
+      type: types.CHANGE_NEW_TODO_TEXT,
+      payload: {
+        text: 'Feed my cat',
+      },
+    }
+    expect(action).to.deep.equal(expectedAction)
+  })
+
   it('should create action with type ADD_TODO', () => {
     const action = actions.addTodo(1, 'Prepare a slide deck')
     const expectedAction = {
