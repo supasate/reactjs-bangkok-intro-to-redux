@@ -2,7 +2,7 @@ import React from 'react'
 
 const ENTER_KEY = 13
 
-const NewTodoInput = (props) => {
+const TodoInput = (props) => {
   const handleChange = (event) => {
     props.onChange(event.target.value)
   }
@@ -25,11 +25,11 @@ const NewTodoInput = (props) => {
   )
 }
 
-NewTodoInput.propTypes = {
+TodoInput.propTypes = {
   text: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   onChange: React.PropTypes.func.isRequired,
   onEnter: React.PropTypes.func.isRequired,
 }
 
-export default NewTodoInput
+export default TodoInput

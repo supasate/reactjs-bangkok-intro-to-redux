@@ -1,8 +1,8 @@
 import React from 'react'
 import { expect, shallow, sinon } from '../test-helper'
-import NewTodoInput from '../../src/components/NewTodoInput'
+import TodoInput from '../../src/components/TodoInput'
 
-describe('NewTodoInput', () => {
+describe('TodoInput', () => {
   let wrapper
   let props
 
@@ -13,7 +13,7 @@ describe('NewTodoInput', () => {
       onChange: sinon.spy(),
       onEnter: sinon.spy(),
     }
-    wrapper = shallow(<NewTodoInput {...props} />)
+    wrapper = shallow(<TodoInput {...props} />)
   })
 
   it('should have a correct tag', () => {
