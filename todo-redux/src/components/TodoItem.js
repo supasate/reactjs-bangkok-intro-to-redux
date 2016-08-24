@@ -8,7 +8,9 @@ const TodoItem = ({ todo, onClick }) => (
     })}
     onClick={onClick}
   >
-    { todo.title }
+    <div className="view">
+      <label htmlFor="todo-item">{ todo.title }</label>
+    </div>
   </li>
 )
 

@@ -18,8 +18,16 @@ describe('TodoItem', () => {
     wrapper = shallow(<TodoItem {...props} />)
   })
 
-  it('should have a correct class', () => {
+  it('should have correct tags and class structure', () => {
     expect(wrapper).to.have.className('todo-item')
+    expect(wrapper).to.have.tagName('li')
+
+    const div = wrapper.children()
+    expect(div).to.have.tagName('div')
+    expect(div).to.have.className('view')
+
+    const label = div.children()
+    expect(label).to.have.tagName('label')
   })
 
   it('should not have a completed class for incomplete item', () => {
