@@ -10,12 +10,17 @@ const TodoApp = (props) => {
     props.actions.changeNewTodoText(text)
   }
 
+  const onAddTodo = (text) => {
+    props.actions.addTodo(text)
+  }
+
   return (
     <div>
       <NewTodoInput
         placeholder="What needs to be done?"
         text={props.newTodoText}
         onChange={onNewTodoTextChange}
+        onEnter={onAddTodo}
       />
       <TodoList />
     </div>
