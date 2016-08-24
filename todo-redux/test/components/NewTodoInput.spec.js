@@ -46,8 +46,12 @@ describe('NewTodoInput', () => {
   it('should call props.onAddTodo when hitting enter', () => {
     const ENTER_KEY = 13
 
-    wrapper.simulate('keyDown', { which: ENTER_KEY, target: { value: 'My new task' } })
+    props.text = 'My new task'
+    wrapper.setProps(props)
+    expect(wrapper).to.have.value('My new task')
 
+    wrapper.simulate('keyDown', { which: ENTER_KEY, target: { value: 'My new task' } })
     expect(props.onEnter).to.have.been.calledWith('My new task')
+    expect(props.onChange).to.have.been.calledWith('')
   })
 })

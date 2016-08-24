@@ -10,6 +10,7 @@ const NewTodoInput = (props) => {
   const handleKeyDown = (event) => {
     if (event.which === ENTER_KEY) {
       props.onEnter(event.target.value.trim())
+      props.onChange('')
     }
   }
 
