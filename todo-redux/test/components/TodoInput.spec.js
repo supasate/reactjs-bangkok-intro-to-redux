@@ -53,10 +53,24 @@ describe('TodoInput', () => {
     expect(props.onChange).to.have.been.calledWith('My new task')
   })
 
-  it('should call props.onAddTodo when hitting enter', () => {
+  it('should not call props.onAddTodo when hitting enter on existing Todo', () => {
     const ENTER_KEY = 13
 
     props.text = 'My new task'
+    props.newTodo = false
+    wrapper.setProps(props)
+    expect(wrapper).to.have.value('My new task')
+
+    wrapper.simulate('keyDown', { which: ENTER_KEY, target: { value: 'My new task' } })
+    expect(props.onEnter).to.have.been.calledWith('My new task')
+    expect(props.onChange).to.not.have.been.called
+  })
+
+  it('should call props.onAddTodo when hitting enter on new Todo', () => {
+    const ENTER_KEY = 13
+
+    props.text = 'My new task'
+    props.newTodo = true
     wrapper.setProps(props)
     expect(wrapper).to.have.value('My new task')
 

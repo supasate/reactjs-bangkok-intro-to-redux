@@ -11,7 +11,9 @@ const TodoInput = (props) => {
   const handleKeyDown = (event) => {
     if (event.which === ENTER_KEY) {
       props.onEnter(event.target.value.trim())
-      props.onChange('')
+      if (props.newTodo) {
+        props.onChange('')
+      }
     }
   }
 
