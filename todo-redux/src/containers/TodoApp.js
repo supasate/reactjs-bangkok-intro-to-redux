@@ -11,7 +11,9 @@ const TodoApp = (props) => {
   }
 
   const onAddTodo = (text) => {
-    props.actions.addTodo(text)
+    if (text !== '') {
+      props.actions.addTodo(text)
+    }
   }
 
   const onDestroyTodo = (id) => {
