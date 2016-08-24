@@ -14,6 +14,10 @@ const TodoApp = (props) => {
     props.actions.addTodo(text)
   }
 
+  const onDestroyTodo = (id) => {
+    props.actions.destroyTodo(id)
+  }
+
   return (
     <div>
       <Header
@@ -21,7 +25,7 @@ const TodoApp = (props) => {
         onChange={onNewTodoTextChange}
         onEnter={onAddTodo}
       />
-      <TodoList />
+      <TodoList onDestroy={onDestroyTodo} />
     </div>
   )
 }
