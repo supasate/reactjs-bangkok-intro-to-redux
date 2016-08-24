@@ -80,4 +80,21 @@ describe('Todos Reducer', () => {
       expect(nextState).to.deep.equal(expectedState)
     })
   })
+
+  describe('destroy', () => {
+    it('should destroy selected todo', () => {
+      const action = {
+        type: types.DESTROY_TODO,
+        payload: {
+          id: 2,
+        },
+      }
+      const nextState = reducer(curState, action)
+      const expectedState = [
+        { id: 1, title: 'Prepare a slide deck', completed: false },
+        { id: 3, title: 'Sleep', completed: true },
+      ]
+      expect(nextState).to.deep.equal(expectedState)
+    })
+  })
 })
