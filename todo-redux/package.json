@@ -28,6 +28,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.5.1",
+    "css-loader": "^0.24.0",
     "enzyme": "^2.4.1",
     "eslint": "^3.3.1",
     "eslint-config-airbnb": "^10.0.1",
@@ -38,6 +39,8 @@
     "mocha": "^3.0.2",
     "sinon": "^1.17.5",
     "sinon-chai": "^2.8.0",
+    "style-loader": "^0.13.1",
+    "todomvc-app-css": "^2.0.6",
     "webpack": "^1.13.2",
     "webpack-dashboard": "^0.1.7",
     "webpack-dev-server": "^1.15.0"
