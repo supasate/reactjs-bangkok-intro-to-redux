@@ -5,7 +5,7 @@ import { createStore } from 'redux'
 import reducer from './reducers'
 import TodoApp from './containers/TodoApp'
 
-let store = createStore(reducer)
+let store = createStore(reducer, window.devToolsExtension && window.devToolsExtension())
 
 ReactDOM.render(
   <Provider store={store}>
