@@ -35,7 +35,7 @@ describe('Todos Reducer', () => {
           },
         },
       ]
-      const nextState = actions.reduce((state, nextAction) => reducer(state, nextAction), curState)
+      const nextState = actions.reduce(reducer, curState)
 
       reducer(curState, actions)
       const expectedState = [
