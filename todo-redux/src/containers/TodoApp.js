@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import todoActions from '../actions/todos'
 import Header from '../components/Header'
-import TodoList from './TodoList'
+import MainSection from '../components/MainSection'
 
 const TodoApp = (props) => {
   const onNewTodoTextChange = (text) => {
@@ -27,7 +27,7 @@ const TodoApp = (props) => {
         onChange={onNewTodoTextChange}
         onEnter={onAddTodo}
       />
-      <TodoList onDestroy={onDestroyTodo} />
+      <MainSection onDestroy={onDestroyTodo} />
     </div>
   )
 }
