@@ -58,4 +58,14 @@ describe('TodoItem', () => {
     wrapper.find('.destroy').simulate('click')
     expect(props.onDestroy).to.have.been.calledWith(props.todo.id)
   })
+
+  it('should change checked attribute of a toggle checkbox', () => {
+    props.todo.completed = true
+    wrapper.setProps(props)
+    expect(wrapper.find('.toggle')).to.have.attr('checked')
+
+    props.todo.completed = false
+    wrapper.setProps(props)
+    expect(wrapper.find('.toggle')).to.not.have.attr('checked')
+  })
 })
