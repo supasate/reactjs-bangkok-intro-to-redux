@@ -16,6 +16,10 @@ const TodoApp = (props) => {
     }
   }
 
+  const onToggleAllTodos = () => {
+    props.actions.toggleAllTodos()
+  }
+
   const onDestroyTodo = (id) => {
     props.actions.destroyTodo(id)
   }
@@ -27,7 +31,7 @@ const TodoApp = (props) => {
         onChange={onNewTodoTextChange}
         onEnter={onAddTodo}
       />
-      <MainSection onDestroy={onDestroyTodo} />
+      <MainSection onToggleAll={onToggleAllTodos} onDestroy={onDestroyTodo} />
     </div>
   )
 }

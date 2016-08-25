@@ -10,6 +10,7 @@ describe('MainSection', () => {
   beforeEach(() => {
     props = {
       onDestroy: sinon.stub(),
+      onToggleAllTodos: sinon.stub(),
     }
     state = {
       todos: [],
@@ -20,6 +21,8 @@ describe('MainSection', () => {
   it('should render correct structure', () => {
     expect(wrapper).to.have.tagName('section')
     expect(wrapper).to.have.className('main')
+    expect(wrapper.find('input')).to.be.present()
+    expect(wrapper.find('input')).to.have.className('toggle-all')
     expect(wrapper.find('TodoList')).to.present()
   })
 
