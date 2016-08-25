@@ -36,6 +36,14 @@ describe('Todos Actions', () => {
     expect(action).to.deep.equal(expectedAction)
   })
 
+  it('should create action with type TOGGLE_ALL_TODOS', () => {
+    const action = actions.toggleAllTodos()
+    const expectedAction = {
+      type: types.TOGGLE_ALL_TODOS,
+    }
+    expect(action).to.deep.equal(expectedAction)
+  })
+
   it('should create action with type DESTROY_TODO', () => {
     const action = actions.destroyTodo(1)
     const expectedAction = {
