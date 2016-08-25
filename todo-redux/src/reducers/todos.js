@@ -21,6 +21,16 @@ const todosReducer = (state = initialState, action) => {
         return todo
       })
     }
+    case types.TOGGLE_ALL_TODOS: {
+      const isAllCompleted = state.every(todo => todo.completed)
+
+      return state.map(todo => {
+        if (isAllCompleted) {
+          return { ...todo, completed: false }
+        }
+        return { ...todo, completed: true }
+      })
+    }
     case types.DESTROY_TODO: {
       return state.filter(todo => todo.id !== action.payload.id)
     }

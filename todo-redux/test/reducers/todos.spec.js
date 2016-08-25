@@ -81,6 +81,39 @@ describe('Todos Reducer', () => {
     })
   })
 
+  describe('toggleAllTodos', () => {
+    it('should complete all todos if at least one todo is incomplete', () => {
+      const action = {
+        type: types.TOGGLE_ALL_TODOS,
+      }
+      const nextState = reducer(curState, action)
+      const expectedState = [
+        { id: 1, title: 'Prepare a slide deck', completed: true },
+        { id: 2, title: 'Speak at ReactJS Conference', completed: true },
+        { id: 3, title: 'Sleep', completed: true },
+      ]
+      expect(nextState).to.deep.equal(expectedState)
+    })
+
+    it('should reset of all complete status if all todos are completed', () => {
+      curState = [
+        { id: 1, title: 'Prepare a slide deck', completed: true },
+        { id: 2, title: 'Speak at ReactJS Conference', completed: true },
+        { id: 3, title: 'Sleep', completed: true },
+      ]
+      const action = {
+        type: types.TOGGLE_ALL_TODOS,
+      }
+      const nextState = reducer(curState, action)
+      const expectedState = [
+        { id: 1, title: 'Prepare a slide deck', completed: false },
+        { id: 2, title: 'Speak at ReactJS Conference', completed: false },
+        { id: 3, title: 'Sleep', completed: false },
+      ]
+      expect(nextState).to.deep.equal(expectedState)
+    })
+  })
+
   describe('destroy', () => {
     it('should destroy selected todo', () => {
       const action = {
