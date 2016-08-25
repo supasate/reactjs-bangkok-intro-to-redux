@@ -27,10 +27,14 @@ describe('TodoItem', () => {
     expect(div).to.have.tagName('div')
     expect(div).to.have.className('view')
 
-    const label = div.childAt(0)
+    const input = div.childAt(0)
+    expect(input).to.have.tagName('input')
+    expect(input).to.have.className('toggle')
+
+    const label = div.childAt(1)
     expect(label).to.have.tagName('label')
 
-    const button = div.childAt(1)
+    const button = div.childAt(2)
     expect(button).to.have.tagName('button')
     expect(button).to.have.className('destroy')
   })
@@ -45,8 +49,8 @@ describe('TodoItem', () => {
     expect(wrapper).to.have.className('completed')
   })
 
-  it('should call onClick when clicking on a todo item', () => {
-    wrapper.simulate('click')
+  it('should call onClick when clicking on a toggle checkbox', () => {
+    wrapper.find('.toggle').simulate('click')
     expect(props.onClick).to.have.been.called
   })
 

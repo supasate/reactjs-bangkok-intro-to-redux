@@ -6,9 +6,9 @@ const TodoItem = ({ todo, onClick, onDestroy }) => (
     className={classNames('todo-item', {
       completed: todo.completed,
     })}
-    onClick={onClick}
   >
     <div className="view">
+      <input className="toggle" type="checkbox" onClick={onClick} />
       <label htmlFor="todo-item">{ todo.title }</label>
       <button className="destroy" onClick={() => { onDestroy(todo.id) }} />
     </div>
