@@ -8,6 +8,16 @@ import TodoApp from './containers/TodoApp'
 
 let store = createStore(reducer, window.devToolsExtension && window.devToolsExtension())
 
+// check if HMR is enabled
+if (module.hot) {
+  // accept update of dependency
+  module.hot.accept('./reducers', () => {
+    const nextReducer = require('./reducers').default
+
+    store.replaceReducer(nextReducer)
+  })
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <TodoApp />
