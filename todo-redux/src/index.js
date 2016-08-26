@@ -13,9 +13,8 @@ let store = createStore(
 
 // check if HMR is enabled
 if (module.hot) {
-  // accept update of dependency
   module.hot.accept('./reducers', () => {
-    const nextReducer = require('./reducers').default
+    const nextReducer = require('./reducers').default // eslint-disable-line global-require
 
     store.replaceReducer(nextReducer)
   })
