@@ -1,1 +1,1 @@
-# ReactJS Bangkok 1.0.0
+# Intro To Redux @ ReactJS Bangkok 1.0.0
