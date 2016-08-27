@@ -1,6 +1,7 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var path = require('path')
 module.exports = {
+  devtool: 'eval-source-map',
   entry: path.join(__dirname, 'src', 'index.js'),
   output: {
     filename: 'bundle.js',
@@ -11,7 +12,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel'],
+        loaders: ['babel?compact=false'],
       }
     ]
   },
