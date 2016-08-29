@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import todoActions from '../actions/todos'
 import Header from '../components/Header'
 import MainSection from '../components/MainSection'
+import Footer from '../components/Footer'
 
 const TodoApp = (props) => {
   const onNewTodoTextChange = (text) => {
@@ -24,6 +25,8 @@ const TodoApp = (props) => {
     props.actions.destroyTodo(id)
   }
 
+  const footer = props.todos.length > 0 ? <Footer numItem={props.todos.length} /> : ''
+
   return (
     <div>
       <Header
@@ -32,6 +35,7 @@ const TodoApp = (props) => {
         onEnter={onAddTodo}
       />
       <MainSection onToggleAll={onToggleAllTodos} onDestroy={onDestroyTodo} />
+      {footer}
     </div>
   )
 }
@@ -39,6 +43,7 @@ const TodoApp = (props) => {
 TodoApp.propTypes = {
   newTodoText: React.PropTypes.string,
   actions: React.PropTypes.object.isRequired,
+  todos: React.PropTypes.array.isRequired,
 }
 
 const mapStateToProps = (state) => ({
