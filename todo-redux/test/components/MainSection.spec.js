@@ -10,7 +10,7 @@ describe('MainSection', () => {
   beforeEach(() => {
     props = {
       onDestroy: sinon.stub(),
-      onToggleAllTodos: sinon.stub(),
+      onToggleAll: sinon.stub(),
     }
     state = {
       todos: [],
