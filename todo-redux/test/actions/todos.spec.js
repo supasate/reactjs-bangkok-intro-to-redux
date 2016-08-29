@@ -1,6 +1,7 @@
 import { expect } from '../test-helper'
 import actions from '../../src/actions/todos'
 import types from '../../src/actions/types'
+import filters from '../../src/constants/filters'
 
 describe('Todos Actions', () => {
   it('should create action with type CHANGE_NEW_TODO_TEXT', () => {
@@ -50,6 +51,17 @@ describe('Todos Actions', () => {
       type: types.DESTROY_TODO,
       payload: {
         id: 1,
+      },
+    }
+    expect(action).to.deep.equal(expectedAction)
+  })
+
+  it('should create action with type FILTER_TODO', () => {
+    const action = actions.filterTodo(filters.ALL)
+    const expectedAction = {
+      type: types.FILTER_TODO,
+      payload: {
+        filter: filters.ALL,
       },
     }
     expect(action).to.deep.equal(expectedAction)

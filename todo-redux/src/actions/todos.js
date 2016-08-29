@@ -32,10 +32,18 @@ const destroyTodo = (id) => ({
   },
 })
 
+const filterTodo = (filter) => ({
+  type: types.FILTER_TODO,
+  payload: {
+    filter,
+  },
+})
+
 export default {
   changeNewTodoText,
   addTodo,
   toggleTodo,
   toggleAllTodos,
   destroyTodo,
+  filterTodo,
 }
