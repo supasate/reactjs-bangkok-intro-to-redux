@@ -130,4 +130,18 @@ describe('Todos Reducer', () => {
       expect(nextState).to.deep.equal(expectedState)
     })
   })
+
+  describe('clearCompletedTodos', () => {
+    it('should clear all completed todos', () => {
+      const action = {
+        type: types.CLEAR_COMPLETED_TODOS,
+      }
+      const nextState = reducer(curState, action)
+      const expectedState = [
+        { id: 1, title: 'Prepare a slide deck', completed: false },
+        { id: 2, title: 'Speak at ReactJS Conference', completed: false },
+      ]
+      expect(nextState).to.deep.equal(expectedState)
+    })
+  })
 })

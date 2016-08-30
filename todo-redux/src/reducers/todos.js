@@ -34,6 +34,9 @@ const todosReducer = (state = initialState, action) => {
     case types.DESTROY_TODO: {
       return state.filter(todo => todo.id !== action.payload.id)
     }
+    case types.CLEAR_COMPLETED_TODOS: {
+      return state.filter(todo => todo.completed === false)
+    }
     default:
       return state
   }
