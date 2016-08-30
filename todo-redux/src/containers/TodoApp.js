@@ -35,7 +35,7 @@ const TodoApp = (props) => {
 
   const footer = props.todos.length > 0 ?
     <Footer
-      numItem={props.todos.length}
+      numActiveItem={props.todos.length}
       filter={props.filter}
       onSelectFilter={onSelectFilter}
       onClearCompleted={onClearCompleted}

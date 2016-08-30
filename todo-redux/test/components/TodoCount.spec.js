@@ -8,7 +8,7 @@ describe('TodoCount', () => {
 
   beforeEach(() => {
     props = {
-      numItem: 3,
+      numActiveItem: 3,
     }
     wrapper = shallow(<TodoCount {...props} />)
   })
@@ -27,13 +27,13 @@ describe('TodoCount', () => {
   })
 
   it('should display unit in singular term', () => {
-    props.numItem = 1
+    props.numActiveItem = 1
     wrapper.setProps(props)
     expect(wrapper).to.have.text('1 item left')
   })
 
   it('should display no item left if numItem is zero', () => {
-    props.numItem = 0
+    props.numActiveItem = 0
     wrapper.setProps(props)
     expect(wrapper).to.have.text('No item left')
   })

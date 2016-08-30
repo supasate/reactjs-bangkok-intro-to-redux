@@ -9,7 +9,7 @@ describe('Footer', () => {
 
   beforeEach(() => {
     props = {
-      numItem: 3,
+      numActiveItem: 3,
       filter: filters.ALL,
       onSelectFilter: sinon.stub(),
       onClearCompleted: sinon.stub(),
@@ -25,8 +25,8 @@ describe('Footer', () => {
     expect(wrapper).to.have.descendants('ClearCompletedButton')
   })
 
-  it('should pass numItem prop to TodoCount', () => {
-    expect(wrapper.find('TodoCount')).to.have.prop('numItem', 3)
+  it('should pass numActiveItem prop to TodoCount', () => {
+    expect(wrapper.find('TodoCount')).to.have.prop('numActiveItem', 3)
   })
 
   it('should pass selectedFilter to Filters', () => {

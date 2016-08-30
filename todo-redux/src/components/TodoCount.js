@@ -1,12 +1,12 @@
 import React from 'react'
 
 const TodoCount = (props) => {
-  const numItem = props.numItem > 0 ? props.numItem : 'No'
-  const unit = props.numItem > 1 ? 'items' : 'item'
+  const numActiveItem = props.numActiveItem > 0 ? props.numActiveItem : 'No'
+  const unit = props.numActiveItem > 1 ? 'items' : 'item'
 
   return (
     <span className="todo-count">
-      <strong>{numItem}</strong>
+      <strong>{numActiveItem}</strong>
       <span>&nbsp;</span>
       <span>{unit}</span>
       <span> left</span>
@@ -15,7 +15,7 @@ const TodoCount = (props) => {
 }
 
 TodoCount.propTypes = {
-  numItem: React.PropTypes.number.isRequired,
+  numActiveItem: React.PropTypes.number.isRequired,
 }
 
 export default TodoCount
