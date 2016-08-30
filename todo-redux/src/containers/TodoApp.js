@@ -29,11 +29,16 @@ const TodoApp = (props) => {
     props.actions.filterTodo(filter)
   }
 
+  const onClearCompleted = () => {
+    props.actions.clearCompletedTodos()
+  }
+
   const footer = props.todos.length > 0 ?
     <Footer
       numItem={props.todos.length}
       filter={props.filter}
       onSelectFilter={onSelectFilter}
+      onClearCompleted={onClearCompleted}
     /> : ''
 
   return (
