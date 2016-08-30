@@ -35,7 +35,8 @@ const TodoApp = (props) => {
 
   const footer = props.todos.length > 0 ?
     <Footer
-      numActiveItem={props.todos.length}
+      numActiveItem={props.numActiveItem}
+      numCompletedItem={props.numCompletedItem}
       filter={props.filter}
       onSelectFilter={onSelectFilter}
       onClearCompleted={onClearCompleted}
@@ -58,12 +59,16 @@ TodoApp.propTypes = {
   newTodoText: React.PropTypes.string,
   actions: React.PropTypes.object.isRequired,
   todos: React.PropTypes.array.isRequired,
+  numActiveItem: React.PropTypes.number.isRequired,
+  numCompletedItem: React.PropTypes.number.isRequired,
   filter: React.PropTypes.string.isRequired,
 }
 
 const mapStateToProps = (state) => ({
   newTodoText: state.newTodoText,
   todos: state.todos,
+  numActiveItem: state.todos.filter((todo) => todo.completed === false).length,
+  numCompletedItem: state.todos.filter((todo) => todo.completed === true).length,
   filter: state.filter,
 })
 

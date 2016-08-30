@@ -10,6 +10,7 @@ describe('Footer', () => {
   beforeEach(() => {
     props = {
       numActiveItem: 3,
+      numCompletedItem: 2,
       filter: filters.ALL,
       onSelectFilter: sinon.stub(),
       onClearCompleted: sinon.stub(),
@@ -23,6 +24,12 @@ describe('Footer', () => {
     expect(wrapper).to.have.descendants('TodoCount')
     expect(wrapper).to.have.descendants('Filters')
     expect(wrapper).to.have.descendants('ClearCompletedButton')
+  })
+
+  it('should hide ClearCompletedButton if there is no completed item', () => {
+    props.numCompletedItem = 0
+    wrapper.setProps(props)
+    expect(wrapper).to.not.have.descendants('ClearCompletedButton')
   })
 
   it('should pass numActiveItem prop to TodoCount', () => {
