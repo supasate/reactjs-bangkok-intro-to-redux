@@ -8,7 +8,9 @@ describe('filterTodoReducer', () => {
     const curState = filters.ALL
     const action = {
       type: types.FILTER_TODO,
-      payload: filters.ACTIVE,
+      payload: {
+        filter: filters.ACTIVE,
+      },
     }
     const nextState = filterTodoReducer(curState, action)
     const expectedState = filters.ACTIVE
@@ -20,7 +22,9 @@ describe('filterTodoReducer', () => {
     const curState = filters.ALL
     const action = {
       type: types.FILTER_TODO,
-      payload: filters.COMPLETED,
+      payload: {
+        filter: filters.COMPLETED,
+      },
     }
     const nextState = filterTodoReducer(curState, action)
     const expectedState = filters.COMPLETED
@@ -32,7 +36,9 @@ describe('filterTodoReducer', () => {
     const curState = filters.ACTIVE
     const action = {
       type: types.FILTER_TODO,
-      payload: filters.ALL,
+      payload: {
+        filter: filters.ALL,
+      },
     }
     const nextState = filterTodoReducer(curState, action)
     const expectedState = filters.ALL

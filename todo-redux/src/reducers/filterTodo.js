@@ -6,7 +6,7 @@ const initialState = filters.ALL
 const filterTodoReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.FILTER_TODO: {
-      return action.payload
+      return action.payload.filter
     }
     default: {
       return state
