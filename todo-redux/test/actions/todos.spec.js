@@ -66,4 +66,12 @@ describe('Todos Actions', () => {
     }
     expect(action).to.deep.equal(expectedAction)
   })
+
+  it('should create action with type CLEAR_COMPLETED_TODOS', () => {
+    const action = actions.clearCompletedTodos()
+    const expectedAction = {
+      type: types.CLEAR_COMPLETED_TODOS,
+    }
+    expect(action).to.deep.equal(expectedAction)
+  })
 })

@@ -39,6 +39,10 @@ const filterTodo = (filter) => ({
   },
 })
 
+const clearCompletedTodos = () => ({
+  type: types.CLEAR_COMPLETED_TODOS,
+})
+
 export default {
   changeNewTodoText,
   addTodo,
@@ -46,4 +50,5 @@ export default {
   toggleAllTodos,
   destroyTodo,
   filterTodo,
+  clearCompletedTodos,
 }
