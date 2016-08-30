@@ -25,7 +25,16 @@ const TodoApp = (props) => {
     props.actions.destroyTodo(id)
   }
 
-  const footer = props.todos.length > 0 ? <Footer numItem={props.todos.length} /> : ''
+  const onSelectFilter = (filter) => {
+    props.actions.filterTodo(filter)
+  }
+
+  const footer = props.todos.length > 0 ?
+    <Footer
+      numItem={props.todos.length}
+      filter={props.filter}
+      onSelectFilter={onSelectFilter}
+    /> : ''
 
   return (
     <div>
@@ -44,11 +53,13 @@ TodoApp.propTypes = {
   newTodoText: React.PropTypes.string,
   actions: React.PropTypes.object.isRequired,
   todos: React.PropTypes.array.isRequired,
+  filter: React.PropTypes.string.isRequired,
 }
 
 const mapStateToProps = (state) => ({
   newTodoText: state.newTodoText,
   todos: state.todos,
+  filter: state.filter,
 })
 
 const mapDispatchToProps = (dispatch) => ({
