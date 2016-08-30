@@ -12,6 +12,7 @@ describe('Footer', () => {
       numItem: 3,
       filter: filters.ALL,
       onSelectFilter: sinon.stub(),
+      onClearCompleted: sinon.stub(),
     }
     wrapper = shallow(<Footer {...props} />)
   })
@@ -20,6 +21,8 @@ describe('Footer', () => {
     expect(wrapper).to.have.tagName('footer')
     expect(wrapper).to.have.className('footer')
     expect(wrapper).to.have.descendants('TodoCount')
+    expect(wrapper).to.have.descendants('Filters')
+    expect(wrapper).to.have.descendants('ClearCompletedButton')
   })
 
   it('should pass numItem prop to TodoCount', () => {
@@ -32,5 +35,10 @@ describe('Footer', () => {
 
   it('should pass onSelectFilter to Filters', () => {
     expect(wrapper.find('Filters')).to.have.prop('onSelectFilter', props.onSelectFilter)
+  })
+
+  it('should pass onClearCompleted to ClearCompletedButton', () => {
+    expect(wrapper.find('ClearCompletedButton'))
+      .to.have.prop('onClearCompleted', props.onClearCompleted)
   })
 })
