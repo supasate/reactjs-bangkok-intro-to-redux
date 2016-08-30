@@ -1,10 +1,10 @@
 import React from 'react'
-import TodoList from '../containers/TodoList'
+import FilteredTodoList from '../containers/FilteredTodoList'
 
 const MainSection = (props) => (
   <section className="main">
     <input className="toggle-all" type="checkbox" onClick={props.onToggleAll} />
-    <TodoList onDestroy={props.onDestroy} />
+    <FilteredTodoList onDestroy={props.onDestroy} />
   </section>
 )
 
